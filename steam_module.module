@@ -1,0 +1,10 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function steam_module_theme($existing, $type, $theme, $path) {
+  $defaults = ['render element' => 'elements'];
+  return [
+    'steam' => $defaults,
+  ];
+}

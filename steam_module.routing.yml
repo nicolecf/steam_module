@@ -1,0 +1,7 @@
+book.settings:
+  path: '/admin/system/steam_module/settings'
+  defaults:
+    _form: '\Drupal\steam_module\Form\ConfigurationForm'
+    _title: 'Steam User Configuration'
+  requirements:
+    _permission: 'administer site configuration'

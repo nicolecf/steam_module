@@ -1,0 +1,16 @@
+my_wizard:
+  version: 0.1
+  js:
+    # Core.
+    js/script.js: {}
+    # Models.
+    js/models/steam.js: {}
+    # Views.
+    js/views/steam.js: {}
+  dependencies:
+    - core/drupal
+    - core/backbone
+    - core/jquery
+    - core/jquery.once
+    - core/matchmedia
+    - core/matchmedia.addListener

@@ -1,0 +1,6 @@
+services:
+  steam_module.ProccessSteamData:
+    class: Drupal\steam_module\services\ProccessSteamData
+    arguments: [
+      '@config.factory'
+    ]
