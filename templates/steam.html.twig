@@ -8,7 +8,6 @@
             not loop.first ? 'hidden',
           ]
         %}
-  
         <div {{ attributes.addClass(classes) }}>
           <div class="page--title-wrapper">
             <h1 class="title">{{ page.title }}</h1>
@@ -19,13 +18,11 @@
         </div>
       {% endfor %}
     </div>
-    
     <div class="my-wizard--nav-wrapper">
       <p class="nav-info">
         <span class="my-wizard--current-page">1</span> / 
         <span class="my-wizard--total-pages">{{ pages|length }}</span>
       </p>
-      
       <button type="button" class="my-wizard--previous-page">Previous</button> 
       <button type="button" class="my-wizard--next-page">Next</button> 
     </div>
