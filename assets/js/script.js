@@ -3,15 +3,16 @@
  * Activate the Steam.
  */
 
-(function ($, Drupal) {
+(function ($, Drupal, once) {
   Drupal.behaviors.mySteam = {
     attach: function attach(context, settings) {
       if (!window.matchMedia('only screen').matches) {
         return;
       }
-      
-      $(context).find('.my-steam').once('mySteam').each(function(index) {
-        var model = Drupal.mySteam.model = new Drupal.mySteam.SteamModel({
+
+      once('steam_module_my_steam', '.steam-block').forEach(function(el) {
+        console.log('teste');
+        const model = Drupal.mySteam.model = new Drupal.mySteam.SteamModel({
           pages: $(this).find('.my-steam--page')
         });
 
@@ -26,6 +27,7 @@
   Drupal.mySteam = Drupal.mySteam || {
     models: {},
     views: {},
+    
     getGameList: function () {
       const url =  Drupal.url('getGames?');
       jQuery.get(url).done(respose => {
@@ -35,4 +37,4 @@
     }
   };
 
-})(jQuery, Drupal);
+})(jQuery, Drupal, once);

@@ -2,15 +2,15 @@ steam_block:
   version: 0.1
   js:
     # Core.
-    js/script.js: {}
+    assets/js/script.js: {}
     # Models.
-    js/models/steam.js: {}
+    assets/js/models/steam.js: {}
     # Views.
-    js/views/steam.js: {}
+    assets/js/views/steam.js: {}
   dependencies:
     - core/drupal
     - core/backbone
     - core/jquery
-    - core/jquery.once
+    - core/once
     - core/matchmedia
     - core/matchmedia.addListener
