@@ -11,28 +11,15 @@
       }
 
       once('steam_module_my_steam', '.steam-block').forEach(function(el) {
-        console.log('teste');
-        const model = Drupal.mySteam.model = new Drupal.mySteam.SteamModel({
-          pages: $(this).find('.my-steam--page')
-        });
 
+        const model = Drupal.mySteam.model = new Drupal.mySteam.SteamModel();
+        console.log(model);
+        model.fetch();
         Drupal.mySteam.view = new Drupal.mySteam.SteamView({
           el: this,
           model: model
         });
-      });
-    }
-  };
-
-  Drupal.mySteam = Drupal.mySteam || {
-    models: {},
-    views: {},
-    
-    getGameList: function () {
-      const url =  Drupal.url('getGames?');
-      jQuery.get(url).done(respose => {
-        Drupal.mySteam.SteamModel.set('count', 5);
-        Drupal.mySteam.SteamModel.set('pages', 5);
+        $(this).append(Drupal.mySteam.view.render());
       });
     }
   };
