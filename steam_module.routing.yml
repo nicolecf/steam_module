@@ -8,5 +8,7 @@ book.settings:
 steam_module.getAllGames:
   path: '/steam/get_all_games'
   defaults:
-    _Controller: '\Drupal\steam_module\Form\ConfigurationForm::getAllGames'
+    _Controller: '\Drupal\steam_module\Controller\SteamData::getAllGames'
     _title: 'Get steam games'
+  requirements:
+    _permission: 'access content'

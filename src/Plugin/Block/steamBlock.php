@@ -62,7 +62,7 @@ class SteamBlock extends BlockBase implements ContainerFactoryPluginInterface {
     $this->routeMatch = $route_match;
     $this->renderer = $renderer;
   }
-  
+
 
   /**
    * {@inheritdoc}

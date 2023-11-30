@@ -3,6 +3,19 @@ steam_block:
   js:
     # Core.
     assets/js/script.js: {}
+  dependencies:
+    - core/drupal
+    - core/backbone
+    - core/jquery
+    - core/once
+    - core/matchmedia
+    - core/matchmedia.addListener
+    - steam_module/steam_backbone
+    - core/drupalSettings
+
+steam_backbone:
+  version: 0.1
+  js:
     # Models.
     assets/js/models/steam.js: {}
     # Views.
@@ -14,3 +27,4 @@ steam_block:
     - core/once
     - core/matchmedia
     - core/matchmedia.addListener
+    - core/drupalSettings

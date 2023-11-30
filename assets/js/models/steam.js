@@ -11,9 +11,9 @@
    *
    * @augments Backbone.Model
    */
-  Drupal.mySteam.SteamModel = Backbone.Model.extend({
+  Drupal.behaviors.SteamModel = Backbone.Model.extend({
 
-    urlRoot: '/steam/get_all_games'
+    url: '/steamModule/web/steam/get_all_games'
 
   });
 })(Backbone, Drupal);

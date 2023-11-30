@@ -3,8 +3,8 @@
  * A Backbone view for the Steam.
  */
 
-(function ($, Backbone, Drupal) {
-  Drupal.mySteam.SteamView = Backbone.View.extend({
+(function ($, Backbone, Drupal, drupalSettings) {
+  Drupal.behaviors.SteamView = Backbone.View.extend({
     events: {
     },
 
@@ -27,10 +27,9 @@
      */
     render: function render() {
 
-      const template = _.template(Drupal.settings.steamBlock.templates.steam);
-      console.log(template);
+      const template = _.template(drupalSettings.steamBlock.templates.steam);
       template(this.model);
       return this;
     },
   });
-})(jQuery, Backbone, Drupal);
+})(jQuery, Backbone, Drupal, drupalSettings);
