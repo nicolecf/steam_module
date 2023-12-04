@@ -4,11 +4,12 @@ namespace Drupal\steam_module\services;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use Drupal\Core\Config\ConfigFactory;
 
 /**
-* Class CustomGetServices for get data from third party API service.
-* @package Drupal\CustomGetServices\Services.
-*/
+ * Class CustomGetServices for get data from third party API service.
+ * @package Drupal\CustomGetServices\Services.
+ */
 class ProcessSteamData {
 
 
@@ -16,21 +17,27 @@ class ProcessSteamData {
 
   const GET_GAMES_URL = "GetOwnedGames/v0001/";
 
-  protected $config_factory;
+  protected $configFactory;
 
   /**
-  * CustomGetServices constructor.
-  *  @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
-  */
-  public function __construct(ConfigFactoryInterface $config_factory) {
-    $this->config_factory = $config_factory;
+   * CustomGetServices constructor.
+   * @param \Drupal\Core\Config\ConfigFactory $configFactory
+   */
+  public function __construct(ConfigFactory $configFactory) {
+    $this->configFactory = $configFactory;
   }
+
   /**
-  * @return \Drupal\Component\Render\MarkupInterface|string
-  */
+   * Get All Games data.
+   *
+   * @return \Drupal\Component\Render\MarkupInterface|string
+   *   Return a JSON string with all games.
+   */
   public function getGamesData() {
-    $config = $this->configFactory->get('steam_module.settings');
-    $url = self::STEAM_API . self::GET_GAMES_URL . "?key=" + $config->get('api_key') + "&steamid=" + $config->get('user_id') + "&format=json";
+
+    // $config = $this->configFactory->get('steam_module.settings');
+    // $url = self::STEAM_API . self::GET_GAMES_URL . "?key=" . $config->get('api_key') . "&steamid=" . $config->get('user_id') . "&format=json";
+    $url = "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=<Key>&steamid=<steamUserNumber>&format=json&include_appinfo=1";
     $client = \Drupal::httpClient();
     $result = [];
 
@@ -40,8 +47,10 @@ class ProcessSteamData {
       $result = json_decode($data);
 
       return ($result);
-    } catch (RequestException $e) {
+    }
+    catch (RequestException $e) {
       \Drupal::logger('steam_module')->notice($e);
     }
   }
+
 }

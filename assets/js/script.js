@@ -12,19 +12,16 @@
 
   Drupal.behaviors.mySteam = {
     attach: function attach(context, settings) {
-      if (!window.matchMedia('only screen').matches) {
-        return;
-      }
-
       once('steam_module_my_steam', '.steam-block').forEach(function(el) {
-        const model = Drupal.mySteam.model = new Drupal.behaviors.SteamModel();
-        console.log(model);
-        model.fetch( );
+        let model = Drupal.mySteam.model = new Drupal.behaviors.SteamModel();
+        model.fetch();
+
         Drupal.mySteam.view = new Drupal.behaviors.SteamView({
-          el: this,
+          el: el,
           model: model
         });
-        $(this).append(Drupal.mySteam.view.render());
+
+        $(el).append(Drupal.mySteam.view.render());
       });
     }
   };

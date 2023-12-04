@@ -26,7 +26,7 @@ class SteamData extends ControllerBase
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('steam_module.processSteamData')
+      $container->get('steam_module.process_steam_data')
     );
   }
 
@@ -34,4 +34,5 @@ class SteamData extends ControllerBase
     $dataSteam = $this->steamData->getGamesData();
     return new JsonResponse($dataSteam);
   }
+
 }
