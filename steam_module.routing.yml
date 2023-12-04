@@ -1,0 +1,15 @@
+book.settings:
+  path: '/admin/system/steam_module/settings'
+  defaults:
+    _form: '\Drupal\steam_module\Form\ConfigurationForm'
+    _title: 'Steam User Configuration'
+  requirements:
+    _permission: 'administer site configuration'
+
+steam_module.getAllGames:
+  path: '/steam/get_all_games'
+  defaults:
+    _controller: '\Drupal\steam_module\Controller\SteamData::getAllGames'
+    _title: 'Get steam games'
+  requirements:
+    _permission: 'access content'

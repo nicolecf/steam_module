@@ -1,0 +1,21 @@
+
+  <div class="steam-games">
+    <table>
+      <thead>
+        <tr>
+        <th>game</th>
+        <th>tempo de jogo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (attributes['response']) { %>
+        <% _.each(attributes.response.games, function(game) { %>
+          <tr>
+            <td><%= game.name %></td>
+            <td><%= parseInt(game.playtime_forever / 60, 10) %> horas</td>
+          </tr>
+        <% }) %>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
